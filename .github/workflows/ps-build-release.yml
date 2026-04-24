@@ -35,4 +35,11 @@ jobs:
       - name: Upload wheel to release
         uses: softprops/action-gh-release@v2
         with:
+          name: "mitmproxy ps fork ${{ github.ref_name }}"
+          body: |
+            Prompt Security patched build of mitmproxy.
+            Tag: `${{ github.ref_name }}`
+            Commit: `${{ github.sha }}`
+            Branch: `${{ github.event.release.target_commitish }}`
+          fail_on_unmatched_files: true
           files: dist/*.whl

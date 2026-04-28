@@ -34,7 +34,9 @@ jobs:
           import sys, os
           from mitmproxy.version import VERSION
           tag = os.environ['GITHUB_REF_NAME']
-          expected = tag.split('ps-v')[1].rsplit('-',1)[0]
+          if not tag.startswith('ps-'):
+              print(f'Tag {tag} does not match ps-* format'); sys.exit(1)
+          expected = tag.removeprefix('ps-').rsplit('-',1)[0].lstrip('v')
           pkg_ver = VERSION.split('+')[0]
           if pkg_ver != expected:
               print(f'VERSION MISMATCH: wheel has {VERSION}, tag is {tag} (expected base version {expected})')

@@ -30,7 +30,17 @@ jobs:
       - name: Verify wheel
         run: |
           pip install --no-deps dist/*.whl
-          python -c "from mitmproxy.version import VERSION; print(f'Built version: {VERSION}')"
+          python -c "
+          import sys, os
+          from mitmproxy.version import VERSION
+          tag = os.environ['GITHUB_REF_NAME']
+          expected = tag.split('ps-v')[1].rsplit('-',1)[0]
+          pkg_ver = VERSION.split('+')[0]
+          if pkg_ver != expected:
+              print(f'VERSION MISMATCH: wheel has {VERSION}, tag is {tag} (expected base version {expected})')
+              sys.exit(1)
+          print(f'Version OK: {VERSION} matches tag {tag}')
+          "
 
       - name: Upload wheel to release
         uses: softprops/action-gh-release@v2

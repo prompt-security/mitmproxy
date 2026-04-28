@@ -1,0 +1,14 @@
+.github/workflows/ps-build-release.yml
+  h_8ba19f197da2c7 37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "cde3090f14ec216da816e891217cf481931e7639",
+  "prompts": {},
+  "humans": {
+    "h_8ba19f197da2c7": {
+      "author": "Vitaly Neyman"
+    }
+  }
+}

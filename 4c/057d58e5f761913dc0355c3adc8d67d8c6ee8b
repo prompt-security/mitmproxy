@@ -1,0 +1,14 @@
+mitmproxy/version.py
+  h_8ba19f197da2c7 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "4c057d58e5f761913dc0355c3adc8d67d8c6ee8b",
+  "prompts": {},
+  "humans": {
+    "h_8ba19f197da2c7": {
+      "author": "Vitaly Neyman"
+    }
+  }
+}
